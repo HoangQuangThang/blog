@@ -1,0 +1,25 @@
+<div class="mt-4" style="background-color: rgb(247, 241, 241);">
+    <div class="row">
+        <div class="col-lg-3" style="height: 50%">
+            <div class="info_product" >
+                
+                <div class="card" style="height: 100%;">
+                    <img style="height: 100%;" class="card-img-top" src="{{course.image}}" alt="boot's image">
+                    <div class="card-body" >
+                        <ul>
+                            <li>Amount:{{course.amount}}</li>
+                            <li>Rate:{{course.rate}}</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" id="button1" >Bought</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-lg-9" >
+            <h2 style="">{{course.name}}</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.videoID}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p> {{course.description}} </p>
+        </div>
+    </div>
+</div>
