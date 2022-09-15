@@ -3,6 +3,12 @@ var mongoose_delete = require('mongoose-delete');
 const {mongooseToObject, mutipleMongooseToObject}=require('../../util/mongoose')
 class MeController{
     manage(req,res,next){
+        // Course.countDocumentsDeleted()
+        //     .then((deletedCount)=>{
+        //         console.log(deletedCount)
+        //     })
+        //     .catch(()=>{})
+
         Course.find({})
             .then(courses=>res.render('me/info-products',{
                 courses:mutipleMongooseToObject(courses)
