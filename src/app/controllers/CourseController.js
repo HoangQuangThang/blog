@@ -22,7 +22,8 @@ class CoursesController{
         const course=new Course(req.body)
         console.log(req.body.name)
         course.save()
-            .then(()=>res.redirect('/courses/'+req.body.name))
+            //.then(()=>res.redirect('/courses/'+req.body.name))
+            .then(()=>res.redirect('/me/info/products'))
             .catch(error=>{
 
             });
@@ -49,6 +50,21 @@ class CoursesController{
             .then(()=>res.redirect('back'))
             .catch(next);
     }
+
+    //[PATCH] /courses/:id/restore
+    restore(req,res,next){
+        Course.restore({_id: req.params.id})
+            .then(()=>res.redirect('back'))
+            .catch(next);
+    }
+
+    //[Delete] course/:id/force
+    forceDeleteProduct(req,res,next){
+        Course.deleteOne({_id: req.params.id})
+            .then(()=>res.redirect('back'))
+            .catch(next);
+    }
+
 }       
     
 

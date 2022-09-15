@@ -13,11 +13,33 @@ const handlebars = require('express-handlebars')
 const app = express()
 const port = 8080
 const db=require('./config/db')
+const Course= require('./app/models/Course')
 const route = require('./routes')
 
 //connnect mongodb
 db.connect();
 
+//Course.collection.updateMany({},{$set:{"deleted":false}},false,true)
+
+// var obj={
+//   image:'https://product.hstatic.net/200000033444/product/2_5fb5dd3b02274dc9aef2c675433c1a28_master.jpg',
+//   name:' BOOT - BEIGE- test',
+//   description:'Màu sắc: Beige.',
+//   videoID:'VqdWCL4sxl8',
+//   rate:'4.9/5.0',
+//   amount:'5',
+//   price:'500000$',
+//   slug:'boot-beige'
+  
+// }
+// Course.collection.insert(obj,function(err,docs){
+//   if(err){
+//     return console.error(err)
+//   }
+//   else{
+//     console.log("successful")
+//   }
+// })
 app.use(express.static(path.join(__dirname, 'public')))
 
 //xử lý post dữ liệu

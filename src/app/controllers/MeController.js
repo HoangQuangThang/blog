@@ -1,4 +1,5 @@
 const Course= require('../models/Course')
+var mongoose_delete = require('mongoose-delete');
 const {mongooseToObject, mutipleMongooseToObject}=require('../../util/mongoose')
 class MeController{
     manage(req,res,next){
@@ -9,5 +10,19 @@ class MeController{
             .catch(next)
             
     }
+    //[GET] me/trash/products
+    trash(req,res,next){
+        //Course.collection.find({deleted:true}).pretty()
+        Course.findDeleted({})
+            .then(
+                
+                courses=>res.render('me/trash-products',{
+                courses:mutipleMongooseToObject(courses)
+            }))
+            .catch(next)
+        
+
+    }
+
 }
 module.exports=new MeController
